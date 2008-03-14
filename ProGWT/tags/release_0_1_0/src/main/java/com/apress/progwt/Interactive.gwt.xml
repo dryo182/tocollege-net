@@ -1,0 +1,43 @@
+<module>
+
+	<!-- Inherit the core Web Toolkit stuff.                  -->
+	<inherits name='com.google.gwt.user.User' />
+
+	<inherits name="com.google.gwt.i18n.I18N" />
+	<inherits name="com.google.gwt.json.JSON" />
+    
+    <inherits name='com.google.gwt.gears.Gears'/>    
+    <inherits name="com.google.gwt.maps.GoogleMaps" />  
+    
+    <!-- gwt-incubator ImmutableResourceBundle & StyleInjector -->
+    <!-- <inherits name="com.google.gwt.libideas.ImmutableResourceBundle" /> -->
+    <inherits name="com.google.gwt.libideas.StyleInjector" />
+
+    <!-- 'com.allen_sauer.gwt.dnd.gwt-dnd --> 
+    <inherits name='com.allen_sauer.gwt.dnd.gwt-dnd'/>   
+    
+    <!-- com.allen_sauer.gwt.log.gwt-log --> 
+    <inherits name="com.allen_sauer.gwt.log.gwt-log" />
+
+	<!-- Specify the app entry point class.                   -->
+    <!-- note, multiple entry points != multiple hooks for JavaScript, all multiple entry hooks mean is that GWT will call onModuleLoad() on multiple components-->
+	<entry-point class='com.apress.progwt.client.Interactive' />    
+
+    <replace-with class="com.apress.progwt.client.college.gui.ext.ClientMouseImplMozilla">
+        <when-type-is class="com.apress.progwt.client.college.gui.ext.ClientMouseImpl" />
+        <any>
+            <when-property-is name="user.agent" value="gecko1_8" />
+            <when-property-is name="user.agent" value="gecko" />
+        </any>
+    </replace-with>
+
+    <!-- No stylesheet here bc we do it with StyleInjection-->
+    
+    <!--no Google Maps here because that means it need to be included on EVERY GWT page-->
+    
+    <extend-property name="log_level" values="DEBUG" />
+    <set-property    name="log_level" value="DEBUG" />
+    
+     <!-- only compile 1 browser -->
+	<!-- <set-property name="user.agent" value="gecko,ie6"/> --> 
+</module>

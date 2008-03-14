@@ -1,0 +1,30 @@
+<!-- This module shows that can get two modules out of the same codebase.
+ We can do this if we have some specific small functionality that we want
+ to export and size concerns trump the re-usable 'one-cache-to-rule-them-all'
+ strategy that we use in the rest of the site. -->
+<module>
+	<!-- Inherit the core Web Toolkit stuff.                  -->
+	<inherits name='com.google.gwt.user.User' />
+
+	<inherits name="com.google.gwt.i18n.I18N" />
+	<inherits name="com.google.gwt.json.JSON" />
+    
+    <inherits name='com.google.gwt.gears.Gears'/>    
+    <inherits name="com.google.gwt.maps.GoogleMaps" />  
+    <inherits name="com.google.gwt.libideas.StyleInjector" />
+
+    <inherits name='com.allen_sauer.gwt.dnd.gwt-dnd'/>   
+    <inherits name="com.allen_sauer.gwt.log.gwt-log" />
+
+	<!-- Specify the app entry point class.                   -->
+	<entry-point class='com.apress.progwt.client.SampleApp' />
+    
+	<stylesheet src="css/gwtstyles.css" />
+
+
+    <extend-property name="log_level" values="DEBUG" />
+    <set-property    name="log_level" value="DEBUG" />
+    
+     <!-- only compile 1 browser -->
+	<!-- <set-property name="user.agent" value="gecko,ie6"/> --> 
+</module>

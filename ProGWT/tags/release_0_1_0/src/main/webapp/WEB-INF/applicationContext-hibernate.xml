@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+       >
+ 
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+ 		<property name="driverClass" value="${jdbc.driverClass}" />
+		<property name="jdbcUrl" value="${jdbc.url}" />
+        <!-- user/password overriden by env.properties -->
+		<property name="user" value="${env.jdbc.user}" />                          
+        <property name="password" value="${env.jdbc.password}"/>                  	
+		<property name="testConnectionOnCheckout" value="true"/>
+	</bean>
+
+
+	<!-- Enable @Repository // from org.springframework.stereotype -->
+    <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
+     
+
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="mappingResources">
+			<list>
+				<value>com/apress/progwt/client/domain/User.hbm.xml</value>
+                <value>com/apress/progwt/client/domain/School.hbm.xml</value>   
+                <value>com/apress/progwt/client/domain/MailingList.hbm.xml</value>
+                <value>com/apress/progwt/client/domain/Application.hbm.xml</value>   			                
+                <value>com/apress/progwt/client/domain/ProcessType.hbm.xml</value>
+                <value>com/apress/progwt/client/domain/RatingType.hbm.xml</value>                
+                <value>com/apress/progwt/client/domain/ForumPost.hbm.xml</value>                
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>			
+			
+				<prop key="hibernate.dialect">${db.dialect}</prop>
+				<prop key="hibernate.show_sql">false</prop>
+                <prop key="hibernate.format_sql">false</prop>
+                <!-- <prop key="hibernate.use_sql_comments">true</prop> -->
+				<prop key="hibernate.bytecode.use_reflection_optimizer">true</prop>
+				<prop key="hibernate.jdbc.batch_size">20</prop>
+				
+				
+				<prop key="hibernate.c3p0.min_size">10</prop>
+				<prop key="hibernate.c3p0.max_size">100</prop>
+				<prop key="hibernate.c3p0.timeout">10</prop>
+				<prop key="hibernate.c3p0.acquireRetryAttempts">30</prop>
+
+				<prop key="hibernate.c3p0.acquireIncrement">5</prop>
+
+				<prop key="hibernate.c3p0.idleConnectionTestPeriod">100</prop>
+
+				<prop key="hibernate.c3p0.initialPoolSize">20</prop>
+				<prop key="hibernate.c3p0.maxPoolSize">100</prop>
+				<prop key="hibernate.c3p0.maxIdleTime">300</prop>
+				<prop key="hibernate.c3p0.maxStatements">50</prop>
+				<prop key="hibernate.c3p0.minPoolSize">10</prop>
+
+				<prop key="hibernate.c3p0.preferredTestQuery">SELECT 1</prop>			
+				
+				
+				<prop key="hibernate.c3p0.testConnectionOnCheckout">true</prop>
+               
+			</props>
+		</property>
+	</bean>
+	<bean id="userDAO" class="com.apress.progwt.server.dao.hibernate.UserDAOHibernateImpl">     
+		<property name="sessionFactory" ref="sessionFactory" />	
+	</bean>
+     <bean id="schoolDAO" class="com.apress.progwt.server.dao.hibernate.SchoolDAOHibernateImpl">
+          <property name="sessionFactory" ref="sessionFactory" />   
+     </bean>
+     
+     <bean id="mailingListDAO" class="com.apress.progwt.server.dao.hibernate.MailingListDAOHibernateImpl">
+          <property name="sessionFactory" ref="sessionFactory"/>    
+     </bean>   
+     
+	<bean id="txManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!--  COMPASS START -->
+  
+  
+    <bean id="compass" class="org.compass.spring.LocalCompassBean">
+        <property name="resourceLocations">
+            <list>
+<!--                 <value>classpath:com/apress/progwt/client/domain/tocollege.cmd.xml</value> --> 
+                <value>classpath:com/apress/progwt/client/domain/tocollege.cpm.xml</value>
+            </list>
+        </property>
+        <!-- <property name="classMappings">
+             <list>
+                  <value>com.apress.progwt.client.domain.School</value>                  
+                  <value>com.apress.progwt.client.domain.generated.AbstractSchool</value>                  
+             </list>
+        </property> -->
+
+        <property name="compassSettings">
+            <props>
+                <prop key="compass.engine.connection">${HOST.compass.repo}</prop>
+                <prop key="compass.transaction.factory">org.compass.spring.transaction.SpringSyncTransactionFactory</prop>
+                <prop key="compass.converter.html.type">com.apress.progwt.server.lucene.HTMLConverter</prop>
+                <prop key="compass.engine.analyzer.html.type">com.apress.progwt.server.lucene.HTMLAnalyzer</prop>
+                <prop key="compass.engine.analyzer.default.type">Snowball</prop>
+                <prop key="compass.engine.analyzer.default.name">English</prop> 
+            </props>
+        </property>       
+        <property name="transactionManager" ref="txManager"/>        
+    </bean>    
+    <bean id="hibernateGpsDevice" class="org.compass.gps.device.hibernate.HibernateGpsDevice">
+      <property name="name"><value>hibernateDevice</value></property>
+      <property name="sessionFactory"><ref local="sessionFactory" /></property>
+      <property name="nativeExtractor"><bean class="org.compass.spring.device.hibernate.SpringNativeHibernateExtractor" /></property>
+    </bean>
+     <bean id="compassGps" class="org.compass.gps.impl.SingleCompassGps" init-method="start" destroy-method="stop">
+       <property name="compass"><ref bean="compass" /></property>
+       <property name="gpsDevices">
+         <list>
+             <bean class="org.compass.spring.device.SpringSyncTransactionGpsDeviceWrapper">
+                 <property name="gpsDevice" ref="hibernateGpsDevice" />
+             </bean>
+         </list>
+       </property>
+     </bean>    
+    <!--  COMPASS END -->
+	
+
+</beans>

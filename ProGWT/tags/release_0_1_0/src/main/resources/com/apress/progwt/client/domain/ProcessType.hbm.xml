@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.apress.progwt.client.domain">
+
+	<class name="ProcessType" table="processtypes">
+		<meta attribute="generated-class">com.apress.progwt.client.domain.generated.AbstractProcessType</meta>
+		<meta attribute="scope-class">public abstract</meta>
+
+		<id name="id" type="long" column="id">
+			<generator class="native"></generator>
+		</id>
+       
+        <property name="name" column="name" type="string"/> 
+        <property name="useByDefault" column="useByDefault" type="boolean"/>
+        <property name="status_order" column="status_order" type="int"/>
+        <property name="percentage" column="percentage" type="boolean"/>
+        <property name="dated" column="dated" type="boolean"/>
+        <property name="imageName" column="imageName" type="string"/>
+        <property name="dueAlert" column="duealert" type="boolean"/>
+        
+	</class>
+
+</hibernate-mapping>
