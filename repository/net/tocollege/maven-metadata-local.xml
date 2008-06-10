@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><metadata>
+  <plugins>
+    <plugin>
+      <name>Google Web Toolkit Compiler Maven2 Mojo</name>
+      <prefix>gwt_</prefix>
+      <artifactId>gwt_maven</artifactId>
+    </plugin>
+  </plugins>
+</metadata>

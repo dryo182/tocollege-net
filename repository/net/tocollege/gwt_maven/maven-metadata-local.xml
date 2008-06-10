@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><metadata>
+  <groupId>net.tocollege</groupId>
+  <artifactId>gwt_maven</artifactId>
+  <version>1.0.0</version>
+  <versioning>
+    <latest>1.0.1</latest>
+    <versions>
+      <version>1.0.0</version>
+      <version>1.0.1</version>
+    </versions>
+    <lastUpdated>20080610212607</lastUpdated>
+  </versioning>
+</metadata>
