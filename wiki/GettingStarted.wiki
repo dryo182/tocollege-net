@@ -1,0 +1,6 @@
+#Getting Started with ToCollege.net Source Code
+
+= Checking Out =
+ps Please note that the correct svn command is:
+
+'svn checkout http://tocollege-net.googlecode.com/svn/ProGWT/trunk/ tocollege-net-read-only' 
