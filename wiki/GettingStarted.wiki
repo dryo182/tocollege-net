@@ -1,4 +1,4 @@
-#Getting Started with ToCollege.net Source Code
+=Getting Started with ToCollege.net Source Code=
 
 = Checking Out =
 ps Please note that the correct svn command is:
