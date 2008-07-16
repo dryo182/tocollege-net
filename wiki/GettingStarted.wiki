@@ -31,7 +31,7 @@ cd /downloads/gwt-windows-0.0.2030/
 ./install-windows 1.5.0-M1
 }}}
 
-== Windows ==
+== Special Windows User Notes ==
 For windows: 
 The chmod command does not work in the normal Windows cmd.exe (Command Line Window) if you have permissions you'll need to set them differently.
 
