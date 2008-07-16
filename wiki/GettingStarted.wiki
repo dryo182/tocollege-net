@@ -33,7 +33,7 @@ cd /downloads/gwt-windows-0.0.2030/
 
 == Special Windows User Notes ==
 For windows: 
-The chmod command does not work in the normal Windows cmd.exe (Command Line Window) if you have permissions you'll need to set them differently.
+The chmod command does not work in the normal Windows cmd.exe (Command Line Window) if you have permissions problems running the command you'll need to set them through explorer. (What's the DOS command?)
 
 The "install-win.cmd" file is for the  in the normal Windows cmd.exe (Command Line Window)
 The "install-win" file is for cygwin.
