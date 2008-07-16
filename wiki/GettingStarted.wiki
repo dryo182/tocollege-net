@@ -1,6 +1,29 @@
-=Getting Started with ToCollege.net Source Code=
+=Getting Started with ToCollege Source Code=
 
 = Checking Out =
 ps Please note that the correct svn command is:
 
 'svn checkout http://tocollege-net.googlecode.com/svn/ProGWT/trunk/ tocollege-net-read-only' 
+
+= Project Name =
+
+The book mentions that you should name the project "ProGWT-ReadOnly" but then the launch configurations refer to "ProGWT". It will work to change the launch configurations, but changing the project name is easier.
+
+
+
+= Installing GWT Maven Jars =
+
+First off I should note is that, if you want to rock with the version from the time of the book, you can checkout tag 'release_0_1_0' instead of 'trunk'. This tag runs with GWT: 1.5.0-M1, whereas trunk uses: 1.5.0.RC1. In general I'd stick with trunk, but there will be some differences from the book.
+
+The second thing to note is that those "install-win.cmd" files etc are all supposed to be run from within the directory created when you download the GWT zip file for your system. At the time the book was written, there were no versions of GWT in central repos, so that's why we're doing it local. Just copy the command into the directory and then run it *with* *an* *argument* of the version, eg "./install-win.cmd 1.5.0.RC1".
+
+From the book:
+{{{
+cd workspace/ProGWT-ReadOnly/Setup/maven/gwt
+chmod a+x install*
+cp install-windows /downloads/gwt-windows-0.0.2030/
+cd /downloads/gwt-windows-0.0.2030/
+./install-windows 1.5.0-M1
+}}}
+
+Unfortunately even though GWT is now in central repos, it will *not* work to use them, since in order to get hosted mode to work you need to have the DLL's in your local repository, right next to the gwt-dev jar. That's what the little install scripts do. They copy the DLL's (or lib's for Linux) into your local repository. 
