@@ -30,6 +30,7 @@ cp install-windows /downloads/gwt-windows-0.0.2030/
 cd /downloads/gwt-windows-0.0.2030/
 ./install-windows 1.5.0-M1
 }}}
+_for latest release of GWT use 1.5.0.RC1 as the version argument!_
 
 == Special Windows User Notes ==
 For windows: 
