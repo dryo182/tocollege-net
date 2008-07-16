@@ -38,3 +38,38 @@ The chmod command does not work in the normal Windows cmd.exe (Command Line Wind
 
 The "install-win.cmd" file is for the  in the normal Windows cmd.exe (Command Line Window)
 The "install-win" file is for cygwin.
+
+== GWT-Log ==
+
+If you get:
+
+[INFO] ------------------------------------------------------------------------
+[ERROR] BUILD ERROR
+[INFO] ------------------------------------------------------------------------
+[INFO] Failed to resolve artifact.
+
+Missing:
+----------
+
+1) com.allen_sauer.gwt.log:gwt-log:jar:1.5.1
+
+
+
+
+Change pom.xml:
+
+<dependency>
+        <groupId>com.allen_sauer.gwt.log</groupId>
+        <artifactId>gwt-log</artifactId>
+        <version>1.5.1</version>
+</dependency>
+
+to 
+
+<dependency>
+        <groupId>com.allen_sauer.gwt.log</groupId>
+        <artifactId>gwt-log</artifactId>
+        <version>1.5.6</version>
+</dependency>
+
+r93 seems to have a mismatch between the pom.xml and install-all script. Sorry!!
