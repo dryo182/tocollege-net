@@ -15,7 +15,12 @@ The book mentions that you should name the project "ProGWT-ReadOnly" but then th
 
 First off I should note is that, if you want to rock with the version from the time of the book, you can checkout tag 'release_0_1_0' instead of 'trunk'. This tag runs with GWT: 1.5.0-M1, whereas trunk uses: 1.5.0.RC1. In general I'd stick with trunk, but there will be some differences from the book.
 
-The second thing to note is that those "install-win.cmd" files etc are all supposed to be run from within the directory created when you download the GWT zip file for your system. At the time the book was written, there were no versions of GWT in central repos, so that's why we're doing it local. Just copy the command into the directory and then run it *with* *an* *argument* of the version, eg "./install-win.cmd 1.5.0.RC1".
+At the time the book was written, there were no versions of GWT in central repos. Unfortunately even though GWT is now in central repos, it will *not* work to use them, since in order to get hosted mode to work you need to have the DLL's in your local repository (right next to the gwt-dev jar) and the central poms aren't setup like that. 
+
+To make this happen, the source includes some little install scripts. They perform a mvn:install commands, then copy the DLL's (or lib's for Linux/Mac) into your local repository. So that's why you need to do this local Maven install, rather than standard pull from central repo. 
+
+
+The install scripts are located in Setup/maven/gwt. To make this happen just copy the install file for your platform into the directory created after you've downloaded the GWT zip file for your system. http://code.google.com/webtoolkit/download.html. Then run it *with* *an* *argument* of the version, eg "./install-mac 1.5.0.RC1".
 
 From the book:
 {{{
@@ -26,4 +31,9 @@ cd /downloads/gwt-windows-0.0.2030/
 ./install-windows 1.5.0-M1
 }}}
 
-Unfortunately even though GWT is now in central repos, it will *not* work to use them, since in order to get hosted mode to work you need to have the DLL's in your local repository, right next to the gwt-dev jar. That's what the little install scripts do. They copy the DLL's (or lib's for Linux) into your local repository. 
+== Windows ==
+For windows: 
+The chmod command does not work in the normal Windows cmd.exe (Command Line Window) if you have permissions you'll need to set them differently.
+
+The "install-win.cmd" file is for the  in the normal Windows cmd.exe (Command Line Window)
+The "install-win" file is for cygwin.
