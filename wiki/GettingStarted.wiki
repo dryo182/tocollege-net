@@ -1,9 +1,11 @@
 =Getting Started with ToCollege Source Code=
 
 = Checking Out =
-ps Please note that the correct svn command is:
+Please note that this project is NOT using Google Code anymore. Please checkout the [http://github.com/jdwyah/tocollege.net/tree/master project source on GitHub]
 
-'svn checkout http://tocollege-net.googlecode.com/svn/ProGWT/trunk/ tocollege-net-read-only' 
+git clone git://github.com/jdwyah/tocollege.net.git
+
+Sorry, but I couldn't take Google Code anymore. Any change to the wiki made me need to reset the entire repository. 
 
 = Project Name =
 
