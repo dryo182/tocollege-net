@@ -24,7 +24,7 @@ The book mentions that you should name the project "ProGWT-ReadOnly" but then th
 
 
 
-= Installing GWT Maven Jars (old!) =
+== Installing GWT Maven Jars (old!) ==
 (git trunk should get these straight from maven central repo!)
 
 First off I should note is that, if you want to rock with the version from the time of the book, you can checkout tag 'release_0_1_0' instead of 'trunk'. This tag runs with GWT: 1.5.0-M1, whereas trunk uses: 1.5.0.RC1. In general I'd stick with trunk, but there will be some differences from the book.
