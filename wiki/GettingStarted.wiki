@@ -41,6 +41,18 @@ The chmod command does not work in the normal Windows cmd.exe (Command Line Wind
 The "install-win.cmd" file is for the  in the normal Windows cmd.exe (Command Line Window)
 The "install-win" file is for cygwin.
 
+
+
+
+
+
+
+
+
+= Old Issues =
+(shouldn't exist in trunk)
+
+
 == GWT-Log ==
 
 If you get:
