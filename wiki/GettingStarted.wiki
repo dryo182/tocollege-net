@@ -5,15 +5,27 @@ Please note that this project is NOT using Google Code anymore. Please checkout 
 
 git clone git://github.com/jdwyah/tocollege.net.git
 
-Sorry, but I couldn't take Google Code anymore. Any change to the wiki made me need to reset the entire repository. 
+If you don't know, don't want, don't care about git. You can just click 'Download' from the page to download a zip file.
+
+Sorry about the change, but I couldn't take Google Code anymore. Any change to the wiki made me need to reset the entire repository. 
 
 = Project Name =
 
-The book mentions that you should name the project "ProGWT-ReadOnly" but then the launch configurations refer to "ProGWT". It will work to change the launch configurations, but changing the project name is easier.
+The book mentions that you should name the project "ProGWT-ReadOnly" but then the launch configurations refer to "ProGWT". It will work to change the launch configurations, but changing the project name is easier. If you're getting it from GitHub it will be called tocollege.net. Renaming to ProGWT is a fine option here too. 
 
 
 
-= Installing GWT Maven Jars =
+
+
+
+= Old Issues =
+(shouldn't exist in trunk)
+
+
+
+
+= Installing GWT Maven Jars (old!) =
+(git trunk should get these straight from maven central repo!)
 
 First off I should note is that, if you want to rock with the version from the time of the book, you can checkout tag 'release_0_1_0' instead of 'trunk'. This tag runs with GWT: 1.5.0-M1, whereas trunk uses: 1.5.0.RC1. In general I'd stick with trunk, but there will be some differences from the book.
 
@@ -45,12 +57,6 @@ The "install-win" file is for cygwin.
 
 
 
-
-
-
-
-= Old Issues =
-(shouldn't exist in trunk)
 
 
 == GWT-Log ==
