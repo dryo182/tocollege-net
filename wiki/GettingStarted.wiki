@@ -11,7 +11,7 @@ Sorry about the change, but I couldn't take Google Code anymore. Any change to t
 
 = Setup = 
 
-First, do read the Setup chapter from the book. There a lot of important information in there and it will explain the general flow of the ToCollege.net setup, database setup, and search setup and how to get the project going in Jetty and Eclipse.
+First, do read the [http://tocollege-net.googlecode.com/files/Building%20ToCollege.pdf Building ToCollege.net] chapter from [http://tinyurl.com/44y3df the book]. There a lot of important information in there and it will explain the general flow of the ToCollege.net setup, database setup, and search setup and how to get the project going in Jetty and Eclipse.
 
 That said, I am continuing to make changes and the book can't change along with me. It was either stay stuck in time at GWT 1.5 M1 or move on, and the idea has always been for ToCollege.net to be a living project. If you want to get the code from when the book was released you can check out the tag [http://github.com/jdwyah/tocollege.net/commit/a90c2a8e2e8ce9cff3f588c6645e073e247b3941 release_0_1_0]  
 
