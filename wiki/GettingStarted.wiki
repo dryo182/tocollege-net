@@ -22,13 +22,13 @@ That said, I am continuing to make changes and the book can't change along with 
 
 GWT 1.5.3 is now available on Maven repos, so we're using that. 
 
-2 main things to note.
-* You'll still need to run Setup/install-all  to install some jars that are still not available on maven repos.
-* The GWT in the maven repo does NOT have the system specific dll's that you need to run hosted mode. That's a big caveat. To fix this:
+2 main things to note. 
+ # You'll still need to run Setup/install-all  to install some jars that are still not available on maven repos.
+ # The GWT in the maven repo does NOT have the system specific dll's that you need to run hosted mode. That's a big caveat. To fix this:
 
-# Download GWT 1.5.3 for your platform
-# Unzip it
-# Copy the lib* files (linux, mac) or *.dll (windows) to  ~/.m2/repository/com/google/gwt/gwt-dev/1.5.3/
+ * Download GWT 1.5.3 for your platform 
+ * Unzip it
+ * Copy the lib* files (linux, mac) or *.dll (windows) to  ~/.m2/repository/com/google/gwt/gwt-dev/1.5.3/
 (That's wherever your maven repo is for you windows users.)
 
 
