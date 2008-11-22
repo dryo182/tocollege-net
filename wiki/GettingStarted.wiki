@@ -34,11 +34,11 @@ GWT 1.5.3 is now available on Maven repos, so we're using that.
 
 
 
-# Tricky Thing 1 =
+= Tricky Thing 1 =
 
 Make sure to run the launch configurations appropriate for Mac if you're a Mac user. There's tweaks in there that are important.
 
-# Tricky Thing 2 =
+= Tricky Thing 2 =
 To run the CollegeApp.launch it actually looks for the HTML file on localhost:8080
 However ./run_jetty does not create this file. ./run_jetty_gwt does.
 
@@ -50,6 +50,13 @@ You should ./run_jetty_gwt one time to create the HTML file. After that you can 
 
 For a more in depth description of all this ./run_jetty stuff see the explanation in the book. 
 
+
+= Tricky Thing 3 =
+It sounds like the run_jetty_gwt.bat script isn't working right on windows. Here's a tip from the groups.
+
+"That said, I have the same problem with the run_jetty_gwt.bat script. The
+second line of the script does not run. To get the whole app to run with the
+gwt parts, simply run the second line of the bat from the command line. "
 
 
 
